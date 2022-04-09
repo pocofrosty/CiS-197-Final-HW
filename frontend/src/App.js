@@ -7,13 +7,11 @@ import SignUpForm from './components/SignUpForm'
 import LoginForm from './components/LoginForm'
 import HomePage from './components/HomePage'
 
-// eslint-disable-next-line import/prefer-default-export
-export const App = () => {
+function App() {
   const [currentUsername, setCurrentUsername] = useState('')
 
   return (
     <div>
-      <h1 className="font-bold"> Testing </h1>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="signup" element={<SignUpForm />} />
@@ -36,3 +34,5 @@ const Test = () => (
     <h1>Invalid Site </h1>
   </div>
 )
+
+export default App
