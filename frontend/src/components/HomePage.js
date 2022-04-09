@@ -56,9 +56,10 @@ const HomePage = ({
   checkIfLoggedIn()
 
   const loginButton = () => (
-    <Link to="/login">
+    <Link className="col-span-2 grow-0 py-2 px-4"
+    to="/login">
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="col-span-2 grow bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       >
         Log In To Submit a Question
       </button>
@@ -66,7 +67,7 @@ const HomePage = ({
   )
 
   const addNewQuestionButton = () => (
-    <button
+    <button className="col-span-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       onClick={() => {
         setQuestionMode(!questionMode)
       }}
@@ -78,34 +79,33 @@ const HomePage = ({
   const logoutButton = () => (
     <>
       <label>
-        {`Username: ${currentUsername}`}
+        {`Current Username: ${currentUsername}`}
       </label>
       <LogoutButton setIsLoggedIn={setIsLoggedIn} setCurrentUsername={setCurrentUsername} />
     </>
   )
 
   const answerForm = () => (
-    <>
+    <div className="grid cols-span-2 grid-cols-1 py-2 px-16">
       <Title text="Answer This Question" />
       <TextBox backgroundName="Answer" text={answerText} setText={setAnswerText} />
       <SubmitAnswerButton _id={currentID} answer={answerText} updateState={updateState} />
-    </>
+    </div>
   )
 
   const questionForm = () => (
-    <QuestionForm />
+    <QuestionForm questionMode={questionMode} setQuestionMode={setQuestionMode} />
   )
 
   return (
-    <>
-      <Title text="Campuswire Lite" />
+    <div className="grid grid-cols-2 py-2 px-16">
+      <Title className="text-left font-bold text-3xl" text="Campuswire Lite" />
       <br />
       {isLoggedIn ? logoutButton() : null}
       <br />
       {isLoggedIn ? addNewQuestionButton() : loginButton()}
       {questionMode ? questionForm() : null}
-      <br />
-      <div>
+      <div className="grid grid-cols-1 py-2 px-16">
         {questionList.map(question => (
           <QuestionPost
             key={question._id}
@@ -115,11 +115,10 @@ const HomePage = ({
           />
         ))}
       </div>
-      <br />
       <CurrentPost getQuestionFromID={getQuestionFromID} currentID={currentID} />
       <br />
       {isLoggedIn ? answerForm() : null}
-    </>
+    </ div>
   )
 }
 

@@ -12,8 +12,8 @@ const SignUpForm = ({}) => {
   const navigate = useNavigate()
 
   return (
-    <>
-      <Title text="Sign Up" />
+    <div className="grid grid-cols-1 py-2 px-3 px-16">
+      <Title className="text-left font-bold text-3xl" text="Sign Up" />
       <br />
       <label> Username: </label>
       <br />
@@ -26,8 +26,8 @@ const SignUpForm = ({}) => {
       <SignUpButton navigate={navigate} username={username} password={password} />
       <br />
       <label> Already have an account? </label>
-      <Link to="/login"> Login</Link>
-    </>
+      <Link className="text-blue-500" to="/login"> Login</Link>
+    </div>
   )
 }
 

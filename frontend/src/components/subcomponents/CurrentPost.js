@@ -4,18 +4,18 @@ const CurrentPost = ({ currentID, getQuestionFromID }) => {
   const question = getQuestionFromID(currentID)
   if (question) {
     return (
-      <>
+      <div className="grid grid-cols-1 shadow border-solid border-4">
         <br />
-        <label>
-          {question.questionText}
+        <label className="text-bold text-2xl">
+          {`Question: ${question.questionText}`}          
         </label>
         <label>
-          {question.author}
+          {`Author: ${question.author}`}
         </label>
         <label>
-          {question.answer}
+          {`Question: ${question.answer}`}
         </label>
-      </>
+      </div>
     )
   }
 

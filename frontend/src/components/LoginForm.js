@@ -12,8 +12,8 @@ const LoginForm = ({ setCurrentUsername }) => {
   const navigate = useNavigate()
 
   return (
-    <>
-      <Title text="Log In" />
+    <div className="grid grid-cols-1 py-2 px-3 px-16">
+      <Title className="text-left font-bold text-3xl" text="Login Page" />
       <br />
       <label> Username: </label>
       <br />
@@ -26,8 +26,8 @@ const LoginForm = ({ setCurrentUsername }) => {
       <LoginButton username={username} password={password} setCurrentUsername={setCurrentUsername} switchScreens={navigate} />
       <br />
       <label> Don&apos;t have an account? </label>
-      <Link to="/signup"> Sign Up </Link>
-    </>
+      <Link className="text-blue-400" to="/signup"> Sign Up </Link>
+    </div >
   )
 }
 
